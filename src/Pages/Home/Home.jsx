@@ -1,13 +1,58 @@
 import React from "react";
 import bannerImg from "../../assets/icons/Banner.svg";
 import "./Home.css";
+import Card from "../../components/Card/Card";
+
 function Home() {
   //here you can declare the products array => 7/
+  const products = [
+    {
+      name: "product 1",
+      description: "write a description here",
+      oldPrice: 15,
+      newPrice: 10,
+      rate: 4.5,
+      category: "vegetable",
+    },
+    {
+      name: "product 2",
+      description: "write a description here",
+      oldPrice: 5,
+      newPrice: 1,
+      rate: 5,
+      category: "fruit",
+    },
+    {
+      name: "product 3",
+      description: "write a description here",
+      oldPrice: 5,
+      newPrice: 1,
+      rate: 5,
+      category: "fruit",
+    },
+    {
+      name: "product 4",
+      description: "write a description here",
+      oldPrice: 5,
+      newPrice: 1,
+      rate: 5,
+      category: "fruit",
+    },
+    {
+      name: "product 5",
+      description: "write a description here",
+      oldPrice: 5,
+      newPrice: 1,
+      rate: 5,
+      category: "fruit",
+    },
+  ];
+
   return (
     <div className="home_page">
       <img className="banner_img" src={bannerImg} alt="" />
       <div className="content">
-        try here
+        <Products products={products}/>
         {/*
        code of cards here
        1/ create a folder named Card in the component folder
@@ -17,8 +62,20 @@ function Home() {
        5/ put the Card component in the content 
        6/ in Home.jsx create an array named products of 5 objects each object has  id :string, image :string, name : string , description : string , newPrice : number , oldPrice : number ,category : string , rate : number
        7/ in Home.jsx in the jsx part (html) map the array of products and in each iteration call the Card Component and pass the object as a props 
-      */}
+      */
+      }
       </div>
+    </div>
+  );
+}
+//This is an example how to map in jsx 
+function Products(props) {
+  return (
+    <div>
+      <h1>products</h1>
+      {props.products.map((product) =>
+        <Card key={product.id} value={product} />
+      )}
     </div>
   );
 }
