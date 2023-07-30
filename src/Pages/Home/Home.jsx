@@ -5,45 +5,55 @@ import Card from "../../components/Card/Card";
 
 function Home() {
   //here you can declare the products array => 7/
-  const products = [
+  let products = [
     {
+      id: 1,
       name: "product 1",
       description: "write a description here",
       oldPrice: 15,
       newPrice: 10,
       rate: 4.5,
+      imgUrl:"https://shorturl.at/bktx4",
       category: "vegetable",
     },
     {
+      id : 2,
       name: "product 2",
       description: "write a description here",
       oldPrice: 5,
       newPrice: 1,
       rate: 5,
+      imgUrl:"https://shorturl.at/gFGNX",
       category: "fruit",
     },
     {
+      id : 3,
       name: "product 3",
       description: "write a description here",
       oldPrice: 5,
       newPrice: 1,
       rate: 5,
+      imgUrl:"",
       category: "fruit",
     },
     {
+      id :4,
       name: "product 4",
       description: "write a description here",
       oldPrice: 5,
       newPrice: 1,
       rate: 5,
+      imgUrl:"",
       category: "fruit",
     },
     {
+      id : 5,
       name: "product 5",
       description: "write a description here",
       oldPrice: 5,
       newPrice: 1,
       rate: 5,
+      imgUrl:"",
       category: "fruit",
     },
   ];
@@ -52,7 +62,9 @@ function Home() {
     <div className="home_page">
       <img className="banner_img" src={bannerImg} alt="" />
       <div className="content">
-        <Products products={products}/>
+       {products.map((product)=>(
+        <Card product={product}/>
+       ))}
         {/*
        code of cards here
        1/ create a folder named Card in the component folder
@@ -71,12 +83,14 @@ function Home() {
 //This is an example how to map in jsx 
 function Products(props) {
   return (
-    <div>
-      <h1>products</h1>
-      {props.products.map((product) =>
-        <Card key={product.id} value={product} />
-      )}
-    </div>
+      <>
+        <h1>products</h1>
+            <div className="cards">
+        {props.products.map((product) =>
+          <Card key={product.id} value={product} />
+        )}
+            </div>
+      </>
   );
 }
 
